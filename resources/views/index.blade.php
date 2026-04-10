@@ -214,6 +214,8 @@
                         <option value="student">ছাত্র 🎓</option>
                         <option value="job_holder">চাকরিজীবী 👔</option>
                         <option value="business">ব্যবসায়ী 💰</option>
+                        <option value="bekar">বেকার 🥲</option>
+                        <option value="juyari">জুয়ারি 🎰</option>
                     </select>
                     <span class="err" id="e-profession"></span>
                 </div>

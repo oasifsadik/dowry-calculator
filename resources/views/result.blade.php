@@ -147,6 +147,13 @@
             75%      { transform: rotate(2deg); }
         }
 
+        .fact-box {
+            display: block; margin-top: .8rem;
+            background: linear-gradient(135deg, #E8F8F5, #D1F2EB);
+            border: 1.5px solid #A9DFBF; border-radius: 14px;
+            padding: .7rem 1.2rem; font-size: .9rem; font-weight: 500; color: #1E8449;
+        }
+
         /* ── BREAKDOWN ── */
         .bd-card {
             background: #fff; border-radius: 24px; margin-top: 1.5rem;
@@ -247,29 +254,7 @@
         <div class="amount-num" id="amountNum">৳ 0</div>
         <div class="amount-word" id="amountWord"></div>
         <div class="fun-box">😂 {{ $data['funMessage'] }}</div>
-    </div>
-
-    <!-- BREAKDOWN -->
-    <div class="bd-card">
-        <div class="bd-title">📊 বিস্তারিত হিসাব নিকাশ</div>
-        <div class="bd-list" id="bdList">
-            @php $maxAmt = collect($data['breakdown'])->max(fn($b) => abs($b['amount'])); @endphp
-            @foreach($data['breakdown'] as $item)
-                @if($item['amount'] != 0)
-                <div class="bd-item {{ $item['amount'] < 0 ? 'negative' : '' }}"
-                     data-pct="{{ round((abs($item['amount']) / max(1,$maxAmt)) * 100) }}"
-                     data-pos="{{ $item['amount'] >= 0 ? '1' : '0' }}">
-                    <span class="bd-lbl">{{ $item['label'] }}</span>
-                    <div class="bd-bar-wrap">
-                        <div class="bd-bar {{ $item['amount'] >= 0 ? 'pos' : 'neg' }}" style="width:0%"></div>
-                    </div>
-                    <span class="bd-amt {{ $item['amount'] >= 0 ? 'pos' : 'neg' }}">
-                        {{ $item['amount'] >= 0 ? '+' : '' }}৳ {{ number_format($item['amount']) }}
-                    </span>
-                </div>
-                @endif
-            @endforeach
-        </div>
+        <div class="fact-box">{{ $data['funFact'] }}</div>
     </div>
 
     <!-- ACTIONS -->
