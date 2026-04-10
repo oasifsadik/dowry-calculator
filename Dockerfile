@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     unzip git curl zip libzip-dev
 
-# PHP extensions (NO mysql)
+# PHP extensions
 RUN docker-php-ext-install zip
 
 # install composer
@@ -18,11 +18,18 @@ COPY . .
 # install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# permissions fix
-RUN chmod -R 777 storage bootstrap/cache
+# create sqlite database file (IMPORTANT)
+RUN mkdir -p database && touch database/database.sqlite
+
+# fix permissions (VERY IMPORTANT)
+RUN chmod -R 777 storage bootstrap/cache database
+
+# optimize laravel (safe for production)
+RUN php artisan config:clear || true
+RUN php artisan cache:clear || true
 
 # expose port
 EXPOSE 10000
 
-# run laravel
+# start server
 CMD php -S 0.0.0.0:10000 -t public
