@@ -4,10 +4,10 @@ WORKDIR /app
 
 # system dependencies
 RUN apt-get update && apt-get install -y \
-    unzip git curl libzip-dev default-mysql-client
+    unzip git curl zip libzip-dev
 
-# PHP extensions (IMPORTANT FIX)
-RUN docker-php-ext-install pdo pdo_mysql zip
+# PHP extensions (NO mysql)
+RUN docker-php-ext-install zip
 
 # install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -24,5 +24,5 @@ RUN chmod -R 777 storage bootstrap/cache
 # expose port
 EXPOSE 10000
 
-# start server
-CMD php artisan serve --host=0.0.0.0 --port=10000
+# run laravel
+CMD php -S 0.0.0.0:10000 -t public
