@@ -278,7 +278,7 @@
     </div>
 
     <footer>
-        <p>Made with ❤️ &amp; 😂 | <strong>Joutuk Calculator BD</strong></p>
+        <p>Made with ❤️ & 😂 by <strong><a href="https://www.facebook.com/oasifsadikjisan" target="_blank">Oasif Sadik Jisan</a></strong></p>
     </footer>
 
 </div>
