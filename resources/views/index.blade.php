@@ -278,7 +278,7 @@
     </div>
 
     <footer>
-        <p>Made with ❤️ & 😂 by <strong><a href="https://www.facebook.com/oasifsadikjisan" target="_blank">Oasif Sadik Jisan</a></strong></p>
+        <p>Made with ❤️ &amp; 😂 | <strong>Joutuk Calculator BD</strong></p>
     </footer>
 
 </div>
@@ -317,7 +317,7 @@ document.getElementById('jForm').addEventListener('submit', async function(e) {
     btn.classList.add('busy');
 
     try {
-        const res  = await fetch('{{ route("joutuk.calculate") }}', {
+        const res  = await fetch('/calculate', {
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,

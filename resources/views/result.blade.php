@@ -274,7 +274,7 @@
 
     <!-- ACTIONS -->
     <div class="actions">
-        <a href="{{ route('joutuk.index') }}" class="btn btn-back">🏠 ফিরে যান</a>
+        <a href="/" class="btn btn-back">🏠 ফিরে যান</a>
         <button class="btn btn-again" id="btnAgain">🎲 আবার হিসাব করুন</button>
         <button class="btn btn-copy"  id="btnCopy">📋 কপি করুন</button>
         <button class="btn btn-share" id="btnShare">📱 শেয়ার করুন</button>
@@ -385,7 +385,7 @@ document.getElementById('btnCopy').addEventListener('click', () => {
 });
 
 document.getElementById('btnAgain').addEventListener('click', () => {
-    window.location.href = '{{ route("joutuk.index") }}';
+    window.location.href = '/';
 });
 </script>
 </body>
